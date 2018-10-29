@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "236134391",
+    "firebase_url": "https://upload-image-b7ed6.firebaseio.com",
+    "project_id": "upload-image-b7ed6",
+    "storage_bucket": "upload-image-b7ed6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236134391:android:66253989d7aa57b1",
+        "android_client_info": {
+          "package_name": "com.example.rabby.imageupload"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236134391-o6pqihdqq1pbrpgbhask8g77e6f78iha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIJ4CxcMwuDovwrI2QQEthzVP7xcsTKq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
