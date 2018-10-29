@@ -2,6 +2,7 @@ package com.example.rabby.imageupload;
 
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mEditTextFileName;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
+    private TextView textView;
 
     private Uri mImageUri;
     //2nd tt
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
+        textView=findViewById(R.id.text_view_name);
 
         //2nd tt
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
@@ -116,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
 
+
+
          mImageView.setImageURI(mImageUri);
 
            // Picasso.with(MainActivity.this).load(mImageUri).into(mImageView);
@@ -141,9 +146,10 @@ public class MainActivity extends AppCompatActivity {
                             }, 500);
 
                             Toast.makeText(MainActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
-                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    taskSnapshot/*.getDownloadUrl()*/.toString());
+
                             String uploadId = mDatabaseRef.push().getKey();
+                            Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                                    taskSnapshot.getDownloadUrl().toString(), uploadId);
                             mDatabaseRef.child(uploadId).setValue(upload);
                         }
                     })

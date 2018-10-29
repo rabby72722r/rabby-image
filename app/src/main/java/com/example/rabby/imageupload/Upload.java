@@ -12,13 +12,14 @@ public class Upload {
         //empty constructor needed
     }
 
-    public Upload(String name, String imageUrl) {
+    public Upload(String name, String imageUrl, String mKey) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
 
         mName = name;
         mImageUrl = imageUrl;
+        this.mKey = mKey;
     }
 
     public String getName() {

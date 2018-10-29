@@ -9,20 +9,25 @@
 
     <Button
         android:id="@+id/button_choose_image"
-        android:layout_width="wrap_content"
+        android:layout_width="109dp"
         android:layout_height="wrap_content"
-        android:text="Choose file" />
+        android:background="#05b2f1"
+        android:text="Choose file"
+        android:textStyle="bold|italic"
+        android:textColor="#f406f0" />
 
     <EditText
         android:id="@+id/edit_text_file_name"
-        android:layout_width="269dp"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="48dp"
         android:layout_marginStart="3dp"
         android:layout_marginLeft="3dp"
+        android:layout_toEndOf="@+id/button_choose_image"
+        android:layout_toRightOf="@+id/button_choose_image"
+        android:background="#eca90e"
         android:hint="Enter file name"
         android:textAlignment="center"
-        android:layout_toEndOf="@+id/button_choose_image"
-        android:layout_toRightOf="@+id/button_choose_image" />
+        android:textColorHint="#7e09f2" />
 
     <ImageView
         android:id="@+id/image_view"
@@ -31,6 +36,17 @@
         android:layout_above="@id/progress_bar"
         android:layout_below="@id/edit_text_file_name"
         android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/image_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-1dp"
+        android:text="Created By Md.Golam Azam sk (Rabby)"
+        android:textColor="#e2063d"
+        android:textAlignment="center"/>
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -44,29 +60,35 @@
 
     <Button
         android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
+        android:layout_width="114dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginBottom="0dp"
-        android:text="Upload" />
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="14dp"
+        android:background="#22ea8d"
+        android:text="Upload"
+        android:textStyle="bold|italic"
+        android:textColor="#8909f2" />
 
     <Button
         android:id="@+id/text_view_show_uploads"
-        android:layout_width="240dp"
-        android:layout_height="51dp"
+        android:layout_width="250dp"
+        android:layout_height="61dp"
         android:layout_alignBaseline="@+id/button_upload"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginLeft="141dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginLeft="131dp"
+        android:layout_marginBottom="4dp"
+        android:background="#d4da81"
         android:gravity="center"
-        android:text="Show Uploads"
+        android:text="Show Uploads ->>>"
+        android:textColor="#1051df"
+        android:textStyle="bold|italic"
         android:textSize="20sp" />
 
 </RelativeLayout>
