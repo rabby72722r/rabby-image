@@ -1,9 +1,14 @@
 package com.example.rabby.imageupload;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -40,6 +45,11 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images);
+
+        android.support.v7.app.ActionBar ab=getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+
+
 
 
         mRecyclerView = findViewById(R.id.recycler_view);
@@ -123,4 +133,93 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mDatabaseRef.removeEventListener(mDBListener);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+
+        if (id == R.id.homeBtnId) {
+
+            // -- home button click from actionbar
+            Intent home= new Intent(ImagesActivity.this,MainActivity.class);
+            startActivity(home);
+
+            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if (id == R.id.aboutUsId) {
+            // --- about us button click from actionbar
+            Intent about= new Intent(this,HelpActivity.class);
+            startActivity(about);
+            return true;
+        }
+
+        if (id == R.id.SettingsId) {
+            // ---- log out button click from actionbar
+            Intent settings= new Intent(this,SettingsActivity.class);
+            startActivity(settings);
+
+            return true;
+        }
+
+        if (id == R.id.FeedbackId) {
+            // ---- log out button click from actionbar
+            Intent feedback= new Intent(this,FeedBack.class);
+            startActivity(feedback);
+
+            return true;
+        }
+
+        if (id == R.id.exitId) {
+
+            // ---- exit button click from actionbar
+            showDailog();
+            // finish();
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed() {
+        Intent home= new Intent(ImagesActivity.this,MainActivity.class);
+        startActivity(home);
+
+        //Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+        //return true;
+    }
+    private void showDailog(){
+        final AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setIcon(R.drawable.exit);
+        builder.setTitle("Exit ?");
+        builder.setMessage("Are you sure to Exit ?");
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        builder.create().show();
+    }
 }
+
+

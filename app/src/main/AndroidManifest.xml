@@ -11,14 +11,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ImagesActivity"></activity>
+        <activity android:name=".ImagesActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.rabby.imageupload.MainActivity"
+                android:parentActivityName=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".HelpActivity"
+            android:label="About Me"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".FeedBack"
+            android:label="FeedBack"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

@@ -40,7 +40,7 @@ public class ImageAdapter extends RecyclerView.Adapter <ImageAdapter.ImageViewHo
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher_round)
                 .fit()
-                .centerCrop()
+                //.centerCrop()
                 .into(holder.imageView);
     }
 
